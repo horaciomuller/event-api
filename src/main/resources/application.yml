@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: EventClean
+
+  datasource:
+    url: jdbc:postgresql://localhost:5431/EventClean
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+
+  flyway:
+    enabled: true
+
+
+
+
+
+
+
+
