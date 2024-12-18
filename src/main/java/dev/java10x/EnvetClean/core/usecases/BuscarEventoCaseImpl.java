@@ -1,4 +1,4 @@
 package dev.java10x.EnvetClean.core.usecases;
 
-public interface buscarEventoCase {
+public class BuscarEventoCaseImpl {
 }
