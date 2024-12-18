@@ -4,15 +4,18 @@ import dev.java10x.EnvetClean.core.gateway.EventoGateway;
 import dev.java10x.EnvetClean.infrastructure.mapper.EventoEntityMapper;
 import dev.java10x.EnvetClean.infrastructure.persistence.EventoEntity;
 import dev.java10x.EnvetClean.infrastructure.persistence.EventoRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class EventoRepositoryGateway implements EventoGateway {
 
     private final EventoRepository eventoRepository;
     private final EventoEntityMapper mapper;
+
+    public EventoRepositoryGateway(EventoRepository eventoRepository, EventoEntityMapper mapper) {
+        this.eventoRepository = eventoRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public Evento criarEvento(Evento evento) {
