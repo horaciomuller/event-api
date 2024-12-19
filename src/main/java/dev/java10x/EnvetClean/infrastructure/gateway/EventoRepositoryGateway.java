@@ -6,6 +6,8 @@ import dev.java10x.EnvetClean.infrastructure.persistence.EventoEntity;
 import dev.java10x.EnvetClean.infrastructure.persistence.EventoRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class EventoRepositoryGateway implements EventoGateway {
 
@@ -22,6 +24,10 @@ public class EventoRepositoryGateway implements EventoGateway {
         EventoEntity entity = mapper.toEntity(evento);
         EventoEntity novoEvento = eventoRepository.save(entity);
         return mapper.toDomain(novoEvento);
+    }
 
+    @Override
+    public List<Evento> buscarEventos() {
+        return eventoRepository.findAll().stream().map(mapper::toDomain).toList();
     }
 }
