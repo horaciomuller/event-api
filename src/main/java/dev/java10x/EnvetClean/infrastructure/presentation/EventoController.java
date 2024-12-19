@@ -2,6 +2,8 @@ package dev.java10x.EnvetClean.infrastructure.presentation;
 import dev.java10x.EnvetClean.core.entities.Evento;
 import dev.java10x.EnvetClean.core.usecases.BuscarEventoUsecase;
 import dev.java10x.EnvetClean.core.usecases.CriarEventoUsecase;
+import dev.java10x.EnvetClean.core.usecases.FiltrarIdentificadorEventoUsacase;
+import dev.java10x.EnvetClean.core.usecases.FiltrarIdentificadorEventoUsecaseImpl;
 import dev.java10x.EnvetClean.infrastructure.dtos.EventoDto;
 import dev.java10x.EnvetClean.infrastructure.mapper.EventoDtoMapper;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +21,13 @@ public class EventoController {
     private final CriarEventoUsecase criarEventoUsecase;
     private final EventoDtoMapper eventoDtoMapper;
     private final BuscarEventoUsecase buscarEventoUsecase;
+    private final FiltrarIdentificadorEventoUsacase filtrarIdentificadorEventoUsecase;
 
-    public EventoController(CriarEventoUsecase criarEventoUsecase, EventoDtoMapper eventoDtoMapper, BuscarEventoUsecase buscarEventoUsecase) {
+    public EventoController(CriarEventoUsecase criarEventoUsecase, EventoDtoMapper eventoDtoMapper, BuscarEventoUsecase buscarEventoUsecase, FiltrarIdentificadorEventoUsacase filtrarIdentificadorEventoUsecase) {
         this.criarEventoUsecase = criarEventoUsecase;
         this.eventoDtoMapper = eventoDtoMapper;
         this.buscarEventoUsecase = buscarEventoUsecase;
+        this.filtrarIdentificadorEventoUsecase = filtrarIdentificadorEventoUsecase;
     }
 
     @PostMapping("criarevento")
@@ -41,5 +45,10 @@ public class EventoController {
             buscarEventoUsecase.execute().stream().map(eventoDtoMapper::toDto).collect(Collectors.toList());
     }
 
-
+    @GetMapping("/identificador/{identificador}")
+    public ResponseEntity<Evento> buscarPorIdentificador(@PathVariable String identificador) {
+        Evento evento = filtrarIdentificadorEventoUsecase.execute(identificador);
+        return ResponseEntity.ok(evento);
+    }
 }
+

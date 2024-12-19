@@ -7,6 +7,7 @@ import dev.java10x.EnvetClean.infrastructure.persistence.EventoRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class EventoRepositoryGateway implements EventoGateway {
@@ -35,5 +36,10 @@ public class EventoRepositoryGateway implements EventoGateway {
     public boolean existePorIdentificador(String identificador) {
         return eventoRepository.findAll().stream()
             .anyMatch(evento -> evento.getIdentificador().equalsIgnoreCase(identificador));
+    }
+
+    @Override
+    public Optional<Evento> filtrarPorIdentificador(String identificador) {
+        return eventoRepository.findByIdentificador(identificador);
     }
 }
