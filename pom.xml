@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.java10x</groupId>
-	<artifactId>EnvetClean</artifactId>
+	<artifactId>EventClean</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>EnvetClean</name>
+	<name>EventClean</name>
 	<description>API para gerenciamento de eventos e locais, desenvolvida com Java 17, Docker, Spring, Flyway e seguindo a arquitetura limpa para uma melhor organização e manutenção do código.</description>
 	<url/>
 	<licenses>
