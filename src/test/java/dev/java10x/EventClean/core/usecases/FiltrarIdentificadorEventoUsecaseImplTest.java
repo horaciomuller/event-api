@@ -57,16 +57,16 @@ public class FiltrarIdentificadorEventoUsecaseImplTest {
         String identificador = "evento-inexistente";
 
         Mockito.when(eventoGateway.filtrarPorIdentificador(identificador))
-            .thenReturn(Optional.empty()); // Simulando a ausência do evento
+            .thenReturn(Optional.empty());
 
         // Act & Assert
         NotFoundEventException exception = Assertions.assertThrows(
-            NotFoundEventException.class, // Verificando que a exceção é lançada
+            NotFoundEventException.class,
             () -> filtrarIdentificadorEventoUsecase.execute(identificador)
         );
 
         // Verificando a mensagem da exceção
         Assertions.assertEquals("Evento com identificador evento-inexistente não encontrado.", exception.getMessage());
-        Mockito.verify(eventoGateway).filtrarPorIdentificador(identificador); // Verificando a chamada do método
+        Mockito.verify(eventoGateway).filtrarPorIdentificador(identificador);
     }
 }
