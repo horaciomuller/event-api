@@ -33,10 +33,11 @@ public class EventoController {
     public ResponseEntity<Map<String, Object>> criarEvento(@RequestBody EventoDto eventoDto) {
         Evento novoEvento = criarEventoUsecase.execute(eventoDtoMapper.toDomain(eventoDto));
         Map<String, Object> response = new HashMap<>();
-        response.put("Mensagem: ", "Evento cadastrado com sucesso no nosso banco de dados");
-        response.put("Dados do evento: ", eventoDtoMapper.toDto(novoEvento));
+        response.put("mensagem", "Evento cadastrado com sucesso no nosso banco de dados");
+        response.put("dadosEvento", eventoDtoMapper.toDto(novoEvento));
         return ResponseEntity.ok(response);
     }
+
 
     @GetMapping("buscarevento")
     public List<EventoDto> buscarEventos() {
