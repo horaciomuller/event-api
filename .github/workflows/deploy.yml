@@ -23,11 +23,15 @@ jobs:
       - name: Run all tests
         run: mvn test
 
-      - name: Build project
+      - name: Build Artifact
         run: mvn clean package
 
-      - name: Store artifact
+      - name: Store Artifact
         uses: actions/upload-artifact@v3
         with:
-            name: myapp-jar
-            path: target/*.jar
+          name: myapp-jar
+          path: target/*.jar
+
+
+
+

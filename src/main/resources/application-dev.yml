@@ -1,16 +1,23 @@
+server:
+  port: 8080
+
 spring:
-  datasource:
-    url: jdbc:h2:mem:testdb
-    username: admin
-    password: admin
-    driver-class-name: org.h2.Driver
   h2:
     console:
       enabled: true
-      path: /h2-console
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: admin
+
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
     show-sql: true
 
-    flyway:
-      enabled: true
-      locations: classpath:db/migration
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
