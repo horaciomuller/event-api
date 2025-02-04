@@ -10,5 +10,5 @@ public record EventoDto(Long id,
                         LocalDateTime dataFim,
                         String localEvento,
                         Integer capacidade,
-                        String organizador,
+                        String imgUrl,
                         TipoEvento tipo) {}

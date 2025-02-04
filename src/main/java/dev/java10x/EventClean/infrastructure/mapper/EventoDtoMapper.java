@@ -16,7 +16,7 @@ public class EventoDtoMapper {
             evento.dataFim(),
             evento.localEvento(),
             evento.capacidade(),
-            evento.organizador(),
+            evento.imgUrl(),
             evento.tipo()
         );
     }
@@ -31,7 +31,7 @@ public class EventoDtoMapper {
             eventoDto.dataFim(),
             eventoDto.localEvento(),
             eventoDto.capacidade(),
-            eventoDto.organizador(),
+            eventoDto.imgUrl(),
             eventoDto.tipo()
         );
     }

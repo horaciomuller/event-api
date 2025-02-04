@@ -17,14 +17,15 @@ public class EventoEntity {
     private LocalDateTime dataFim;
     private String localEvento;
     private Integer capacidade;
-    private String organizador;
+    @Column(name = "img_url")
+    private String imgUrl;
     @Enumerated(EnumType.STRING)
     private TipoEvento tipo;
 
     public EventoEntity() {
     }
 
-    public EventoEntity(Long id, String nome, String descricao, String identificador, LocalDateTime dataInicio, LocalDateTime dataFim, String localEvento, Integer capacidade, String organizador, TipoEvento tipo) {
+    public EventoEntity(Long id, String nome, String descricao, String identificador, LocalDateTime dataInicio, LocalDateTime dataFim, String localEvento, Integer capacidade, String imgUrl, TipoEvento tipo) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -33,7 +34,7 @@ public class EventoEntity {
         this.dataFim = dataFim;
         this.localEvento = localEvento;
         this.capacidade = capacidade;
-        this.organizador = organizador;
+        this.imgUrl = imgUrl;
         this.tipo = tipo;
     }
 
@@ -101,12 +102,12 @@ public class EventoEntity {
         this.capacidade = capacidade;
     }
 
-    public String getOrganizador() {
-        return organizador;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setOrganizador(String organizador) {
-        this.organizador = organizador;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public TipoEvento getTipo() {

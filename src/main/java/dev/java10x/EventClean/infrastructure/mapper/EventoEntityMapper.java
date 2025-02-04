@@ -16,7 +16,7 @@ public class EventoEntityMapper {
             evento.dataFim(),
             evento.localEvento(),
             evento.capacidade(),
-            evento.organizador(),
+            evento.imgUrl(),
             evento.tipo()
         );
 
@@ -32,7 +32,7 @@ public class EventoEntityMapper {
             eventoEntity.getDataFim(),
             eventoEntity.getLocalEvento(),
             eventoEntity.getCapacidade(),
-            eventoEntity.getOrganizador(),
+            eventoEntity.getImgUrl(),
             eventoEntity.getTipo()
         );
 
