@@ -6,7 +6,7 @@ import java.util.Optional;
 public interface EventoRepository extends JpaRepository<EventoEntity, Long> {
 
     Optional<Evento> findByIdentificador(String identificador);
-    Optional<Evento> findByNome(String nome);
+    Optional<Evento> findByNomeIgnoreCase(String nome);
 
 
 

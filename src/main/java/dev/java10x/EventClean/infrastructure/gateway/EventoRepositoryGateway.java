@@ -45,6 +45,6 @@ public class EventoRepositoryGateway implements EventoGateway {
 
     @Override
     public Optional<Evento> filtrarPorNome(String nome) {
-        return eventoRepository.findByNome(nome);
+        return eventoRepository.findByNomeIgnoreCase(nome);
     }
 }
