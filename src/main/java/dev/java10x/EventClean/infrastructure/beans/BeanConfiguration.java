@@ -22,6 +22,11 @@ public class BeanConfiguration {
         return new FiltrarIdentificadorEventoUsecaseImpl(eventoGateway);
     }
 
+    @Bean
+    public FiltrarNomeEventoUsecase filtrarNomeEventoUsecase(EventoGateway eventoGateway) {
+        return new FiltrarNomeEventoUsecaseImpl(eventoGateway);
+    }
+
 
 
 

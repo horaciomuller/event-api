@@ -42,4 +42,9 @@ public class EventoRepositoryGateway implements EventoGateway {
     public Optional<Evento> filtrarPorIdentificador(String identificador) {
         return eventoRepository.findByIdentificador(identificador);
     }
+
+    @Override
+    public Optional<Evento> filtrarPorNome(String nome) {
+        return eventoRepository.findByNome(nome);
+    }
 }
